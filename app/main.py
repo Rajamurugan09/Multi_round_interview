@@ -2,11 +2,12 @@ from fastapi import FastAPI
 from app.database.session import engine
 from app.database.session import engine
 from app.database.base import Base
-from app.routers import interview
+from app.routers import interview,round
 
 app = FastAPI(title="AI Interview Backend")
 
 app.include_router(interview.router)
+app.include_router(round.router)
 @app.get("/health")
 def health_check():
     return {"status": "OK"}
